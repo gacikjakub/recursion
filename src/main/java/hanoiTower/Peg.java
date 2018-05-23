@@ -26,7 +26,14 @@ public class Peg {
         if (stack.contains(disk)) {
             return false;
         }
+        if (stack.size()>0 && stack.getFirst().size < disk.size) {
+            return false;
+        }
         return stack.offerFirst(disk);
+    }
+
+    public Disk getLargestDisk() {
+        return stack.getLast();
     }
 
 

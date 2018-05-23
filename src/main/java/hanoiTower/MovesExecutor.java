@@ -24,12 +24,13 @@ public class MovesExecutor {
             source.putOnTop(cache.get());
             return false;
         }
-        movesHistory.add("From " + source.name + " ----> " + destination.name + ": Disk " + cache.get());
+        movesHistory.add(String.format("%-16s %s %-15s %-10s", "From " + source.name, " ----> ", destination.name + ": ", "Disk " + cache.get()));
         return true;
     }
 
     public void showHistory(Consumer<String> consumer) {
         consumer.accept("MOVES HISTORY: ");
+        consumer.accept("================================================================");
         StringBuilder stringBuilder = new StringBuilder();
         final AtomicInteger counter = new AtomicInteger(0);
         movesHistory.stream().forEach(s -> {

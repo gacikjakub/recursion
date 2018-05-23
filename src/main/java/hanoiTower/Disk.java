@@ -33,4 +33,8 @@ public class Disk {
         return Integer.toString(size);
     }
 
+    public Disk getImmediatelySmaller() {
+        return new Disk(size-1);
+    }
+
 }
